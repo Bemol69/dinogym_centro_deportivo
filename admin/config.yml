@@ -1,0 +1,185 @@
+# Panel /admin de DinoGym (Sveltia CMS)
+# Cada cambio guardado crea un commit en GitHub y la web se publica sola en ~30 s.
+
+backend:
+  name: github
+  repo: %%GITHUB_REPO%%
+  branch: main
+  commit_messages:
+    create: "Panel: crea {{collection}} «{{slug}}»"
+    update: "Panel: actualiza {{collection}} «{{slug}}»"
+    delete: "Panel: elimina {{collection}} «{{slug}}»"
+    uploadMedia: "Panel: sube foto {{path}}"
+    deleteMedia: "Panel: elimina foto {{path}}"
+
+site_url: %%SITE_URL%%
+display_url: %%SITE_URL%%
+logo_url: ../img/logo.jpg
+
+media_folder: img/galeria
+public_folder: /img/galeria
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1600
+          height: 1600
+
+collections:
+  - name: planes
+    label: Planes y precios
+    icon: payments
+    files:
+      - name: planes
+        label: Planes y mensualidades
+        file: data/planes.json
+        format: json
+        fields:
+          - name: planes
+            label: Planes
+            label_singular: plan
+            widget: list
+            hint: "Arrastra los planes para cambiar el orden. Para ocultar uno sin borrarlo, desmarca «Mostrar en la web»."
+            summary: "{{fields.nombre}} · ${{fields.precio}} · {{fields.grupo}}"
+            fields:
+              - { name: grupo, label: Pestaña donde aparece, widget: select, default: general, options: [{ label: "Estudiantes", value: estudiantes }, { label: "General", value: general }] }
+              - { name: nombre, label: Nombre del plan, widget: string, hint: "Ej: Plan Dúo" }
+              - { name: personas, label: Cantidad de personas, widget: number, value_type: int, min: 1, max: 6, default: 1, hint: "Si son 2 o más, la web calcula sola cuánto paga cada uno." }
+              - { name: precio, label: Precio total, widget: number, value_type: int, min: 0, hint: "Solo números, sin puntos. Ej: 25000. Si pones 0 aparece «Consultar»." }
+              - { name: periodo, label: Se paga por, widget: select, options: [mes, día, semana, trimestre, año], default: mes }
+              - { name: detalle, label: Frase corta, widget: string, required: false, hint: "Ej: Ingreso de 06:00 a 13:00 hrs." }
+              - { name: incluye, label: Qué incluye, label_singular: punto, widget: list, required: false, field: { name: item, label: Punto, widget: string } }
+              - { name: etiqueta, label: Etiqueta (opcional), widget: string, required: false, hint: "Ej: El más elegido, Cupos limitados. Vacío = sin etiqueta." }
+              - { name: destacado, label: Destacar (borde dorado animado), widget: boolean, default: false }
+              - { name: visible, label: Mostrar en la web, widget: boolean, default: true }
+          - name: grupos
+            label: Pestañas
+            label_singular: pestaña
+            widget: list
+            allow_add: false
+            allow_remove: false
+            hint: "Puedes cambiar el nombre y la nota de cada pestaña, y arrastrarlas para cambiar cuál aparece primero."
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: id, label: Código interno, widget: hidden }
+              - { name: nombre, label: Nombre de la pestaña, widget: string }
+              - { name: nota, label: Nota bajo la pestaña, widget: text, required: false, hint: "Ej: requisitos para el plan estudiante." }
+
+  - name: servicios
+    label: Servicios y clases
+    icon: sports_mma
+    files:
+      - name: servicios
+        label: Servicios
+        file: data/servicios.json
+        format: json
+        fields:
+          - name: servicios
+            label: Servicios
+            label_singular: servicio
+            widget: list
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: nombre, label: Nombre, widget: string }
+              - { name: texto, label: Descripción corta, widget: text }
+              - { name: icono, label: Ícono, widget: select, default: pesa, options: [{ label: "Mancuerna", value: pesa }, { label: "Objetivo (personal trainer)", value: objetivo }, { label: "Rutina (hoja)", value: rutina }, { label: "Guante (kickboxing)", value: guante }, { label: "Cinturón (artes marciales)", value: cinturon }, { label: "Huincha (evaluación)", value: medida }, { label: "Rayo", value: rayo }, { label: "Llama", value: llama }, { label: "Calendario", value: calendario }] }
+              - { name: etiqueta, label: Etiqueta (opcional), widget: string, required: false, hint: "Ej: Muy pronto, Cupos disponibles." }
+              - { name: visible, label: Mostrar en la web, widget: boolean, default: true }
+
+  - name: horario
+    label: Horario
+    icon: schedule
+    files:
+      - name: horario
+        label: Horario y feriados
+        file: data/horario.json
+        format: json
+        fields:
+          - name: bloques
+            label: Bloques de horario
+            label_singular: bloque
+            widget: list
+            summary: "{{fields.dias}} · {{fields.abre}}–{{fields.cierra}}"
+            fields:
+              - { name: dias, label: Cómo se muestra, widget: string, hint: "Ej: Lunes a viernes" }
+              - { name: desde, label: Desde el día, widget: select, options: [lunes, martes, miercoles, jueves, viernes, sabado, domingo] }
+              - { name: hasta, label: Hasta el día, widget: select, options: [lunes, martes, miercoles, jueves, viernes, sabado, domingo] }
+              - { name: abre, label: Abre, widget: string, pattern: ['^([01]\d|2[0-3]):[0-5]\d$', "Formato HH:MM, ej 06:00"] }
+              - { name: cierra, label: Cierra, widget: string, pattern: ['^([01]\d|2[0-3]):[0-5]\d$', "Formato HH:MM, ej 22:00"] }
+          - { name: cerrado_texto, label: Días cerrados, widget: string, required: false, hint: "Ej: Domingo. Vacío = no se muestra la fila." }
+          - name: feriados
+            label: Feriados en que se cierra
+            label_singular: feriado
+            widget: list
+            required: false
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: nombre, label: Cómo se muestra, widget: string, hint: "Ej: 18 de septiembre" }
+              - { name: fecha, label: Fecha (MM-DD), widget: string, pattern: ['^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$', "Formato MM-DD, ej 09-18"], hint: "Mes y día: 09-18 = 18 de septiembre." }
+          - { name: feriados_nota, label: Nota de feriados, widget: text, required: false }
+          - { name: aviso_activo, label: Mostrar aviso arriba de la web, widget: boolean, default: false, hint: "Para cambios de horario, promociones o cierres. Aparece en una franja dorada." }
+          - { name: aviso_texto, label: Texto del aviso, widget: text, required: false }
+
+  - name: galeria
+    label: Fotos del gimnasio
+    icon: photo_library
+    files:
+      - name: galeria
+        label: Galería
+        file: data/galeria.json
+        format: json
+        fields:
+          - name: fotos
+            label: Fotos
+            label_singular: foto
+            widget: list
+            required: false
+            hint: "La primera foto se muestra en grande."
+            summary: "{{fields.texto}}"
+            fields:
+              - { name: foto, label: Foto, widget: image }
+              - { name: texto, label: Texto corto, widget: string, required: false }
+
+  - name: ajustes
+    label: Datos y textos
+    icon: settings
+    files:
+      - name: ajustes
+        label: Contacto y portada
+        file: data/ajustes.json
+        format: json
+        fields:
+          - { name: nombre, label: Nombre corto, widget: string }
+          - { name: nombre_completo, label: Nombre completo, widget: string }
+          - { name: instagram, label: Usuario de Instagram, widget: string, hint: "Sin @" }
+          - { name: whatsapp, label: WhatsApp, widget: string, required: false, pattern: ['^(569\d{8})?$', "Formato 569XXXXXXXX (11 dígitos) o vacío"], hint: "Formato 56912345678. Vacío = los botones llevan a Instagram." }
+          - { name: direccion, label: Dirección, widget: string }
+          - { name: comuna, label: Comuna, widget: string }
+          - { name: region, label: Región, widget: string }
+          - { name: maps_url, label: Link de Google Maps, widget: string }
+          - { name: lema, label: Frase principal de la portada, widget: string, hint: "La palabra «fuerza» sale en dorado." }
+          - { name: hero_bajada, label: Texto bajo la frase, widget: text }
+          - { name: valores, label: Frases de la cinta dorada, label_singular: frase, widget: list, field: { name: valor, label: Frase, widget: string } }
+          - name: beneficios
+            label: Beneficios (bajo la cinta)
+            label_singular: beneficio
+            widget: list
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: texto, label: Texto, widget: text }
+              - { name: icono, label: Ícono, widget: select, default: escudo, options: [{ label: "Sin matrícula (hoja tachada)", value: sin-matricula }, { label: "Escudo", value: escudo }, { label: "Calendario", value: calendario }, { label: "Mancuerna", value: pesa }, { label: "Rayo", value: rayo }, { label: "Llama", value: llama }] }
+          - { name: cierre_titulo, label: Título final, widget: string }
+          - { name: cierre_texto, label: Texto final, widget: text }
+          - { name: google_nota, label: Nota en Google, widget: number, value_type: float, min: 0, max: 5, step: 0.1, required: false, hint: "Ej: 4.3. Pon 0 para ocultarla." }
+          - { name: google_resenas, label: Cantidad de reseñas en Google, widget: number, value_type: int, min: 0, required: false }

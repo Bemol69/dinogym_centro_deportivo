@@ -1,0 +1,17 @@
+{
+  "bloques": [
+    { "dias": "Lunes a viernes", "desde": "lunes", "hasta": "viernes", "abre": "06:00", "cierra": "22:00" },
+    { "dias": "Sábados y festivos", "desde": "sabado", "hasta": "sabado", "abre": "09:00", "cierra": "16:00" }
+  ],
+  "cerrado_texto": "Domingo",
+  "feriados": [
+    { "fecha": "01-01", "nombre": "1 de enero" },
+    { "fecha": "05-01", "nombre": "1 de mayo" },
+    { "fecha": "09-18", "nombre": "18 de septiembre" },
+    { "fecha": "09-19", "nombre": "19 de septiembre" },
+    { "fecha": "12-25", "nombre": "25 de diciembre" }
+  ],
+  "feriados_nota": "Si por algún motivo abrimos un feriado irrenunciable, el día se cobra: $2.000 inscritos activos y $3.000 público general.",
+  "aviso_activo": false,
+  "aviso_texto": ""
+}

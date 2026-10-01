@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add("js")</script>
+  <title>%%SEO_TITULO%%</title>
+  <meta name="description" content="%%SEO_DESC%%">
+  <link rel="canonical" href="%%SITE%%/">
+  <meta name="theme-color" content="#080a07">
+  <link rel="icon" href="/img/logo.jpg">
+  <link rel="apple-touch-icon" href="/img/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="%%NOMBRE_COMPLETO%%">
+  <meta property="og:title" content="%%SEO_TITULO%%">
+  <meta property="og:description" content="%%SEO_DESC%%">
+  <meta property="og:url" content="%%SITE%%/">
+  <meta property="og:image" content="%%SITE%%/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=%%V%%">
+  <script type="application/ld+json">%%LD%%</script>
+</head>
+<body>
+%%ICONS%%
+
+  <!-- Intro: una mordida que abre la página (solo la primera vez por visita) -->
+  <div class="intro" aria-hidden="true">
+    <div class="intro__jaw intro__jaw--top"></div>
+    <div class="intro__jaw intro__jaw--bot"></div>
+    <div class="intro__mark"><img src="/img/logo.jpg" alt="" width="96" height="96"><span>Dino<b>Gym</b></span></div>
+  </div>
+
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  %%AVISO%%
+
+  <header class="nav" id="top">
+    <div class="nav__in wrap">
+      <a class="brand" href="#top" aria-label="%%NOMBRE%%, ir al inicio">
+        <img src="/img/logo.jpg" alt="" width="44" height="44">
+        <span class="brand__txt"><b>Dino<em>Gym</em></b><small>Centro deportivo</small></span>
+      </a>
+      <nav class="nav__links" aria-label="Secciones">
+        <a href="#planes">Planes</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#horario">Horario</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="icon-btn" href="%%IG%%" target="_blank" rel="noopener" aria-label="Instagram de %%NOMBRE%%"><svg class="i" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        <a class="btn btn--gold btn--sm" href="%%WA_GENERAL%%" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg>Inscríbete</a>
+        <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <nav aria-label="Menú">
+      <a href="#planes">Planes</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#gym">El gym</a>
+      <a href="#horario">Horario</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
+    <div class="menu__foot">
+      <a class="btn btn--gold" href="%%WA_GENERAL%%" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg>%%WA_LABEL%%</a>
+      <a class="btn btn--line" href="%%IG%%" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-instagram"/></svg>@%%IG_USER%%</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ============ PORTADA ============ -->
+    <section class="hero">
+      <div class="wrap hero__in">
+        <div class="hero__copy">
+          <p class="eyebrow hero__eyebrow"><span class="dot"></span>Gimnasio en %%COMUNA%% · Centro deportivo</p>
+          <h1 class="hero__title">%%LEMA_HTML%%</h1>
+          <p class="hero__sub">%%HERO_BAJADA%%</p>
+          <div class="hero__cta">
+            <a class="btn btn--gold" href="#planes">Ver planes y precios <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            <a class="btn btn--line" href="%%WA_GENERAL%%" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg>Escríbenos</a>
+          </div>
+          <div class="hero__foot">
+            %%RATING%%
+            <a class="hero__where" href="#ubicacion"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>%%DIRECCION%%, %%COMUNA%%</a>
+          </div>
+        </div>
+
+        <div class="hero__art">
+          <div class="stage">
+            <span class="stage__corner stage__corner--tl"></span><span class="stage__corner stage__corner--br"></span>
+            <div class="mascot">
+              <span class="mascot__ring" aria-hidden="true"></span>
+              <span class="mascot__glow" aria-hidden="true"></span>
+              <img class="mascot__img" src="/img/dino-mascota.webp" alt="Mascota de %%NOMBRE%%: un T-rex musculoso entrenando con una mancuerna" width="1211" height="1197" fetchpriority="high" decoding="async">
+              <svg class="mascot__hit" viewBox="0 0 100 100" aria-hidden="true">
+                <path d="M50 30 L50 8"/><path d="M64 36 L80 20"/><path d="M36 36 L22 22"/><path d="M68 52 L90 50"/>
+              </svg>
+            </div>
+            <ul class="stage__chips" aria-label="Disciplinas">
+              <li class="chip chip--a"><svg class="i" aria-hidden="true"><use href="#i-guante"/></svg>Kickboxing</li>
+              <li class="chip chip--b"><svg class="i" aria-hidden="true"><use href="#i-cinturon"/></svg>Jiu-jitsu</li>
+              <li class="chip chip--c"><svg class="i" aria-hidden="true"><use href="#i-objetivo"/></svg>Personal trainer</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cinta con dientes -->
+    <div class="band" aria-label="Nuestros valores">
+      <div class="band__track">%%MARQUEE%%</div>
+    </div>
+
+    <!-- SI:BENEFICIOS -->
+    <section class="perks">
+      <ul class="wrap perks__list">%%BENEFICIOS%%
+      </ul>
+    </section>
+    <!-- /SI:BENEFICIOS -->
+
+    <!-- ============ PLANES ============ -->
+    <section class="sec plans" id="planes">
+      <div class="wrap">
+        <div class="sec__head" data-reveal>
+          <p class="eyebrow"><svg class="claw" viewBox="0 0 60 40" aria-hidden="true"><path d="M8 34 22 6"/><path d="M24 36 38 6"/><path d="M40 34 54 8"/></svg>Planes y precios</p>
+          <h2 class="sec__title">Elige tu plan y <span class="hl">a entrenar</span></h2>
+          <p class="sec__lead">Precios mensuales, sin matrícula ni inscripción. Toca un plan y te respondemos por WhatsApp.</p>
+        </div>
+
+        <!-- SI:TABS -->
+        <div class="tabs" role="tablist" aria-label="Tipo de plan" data-reveal>%%PLANES_TABS%%<span class="tabs__ink" aria-hidden="true"></span></div>
+        <!-- /SI:TABS -->
+
+        <div class="plans__panels">%%PLANES_PANELS%%
+        </div>
+      </div>
+    </section>
+
+    <!-- SI:SERVICIOS -->
+    <!-- ============ SERVICIOS ============ -->
+    <section class="sec svcs" id="servicios">
+      <div class="wrap">
+        <div class="sec__head" data-reveal>
+          <p class="eyebrow"><svg class="claw" viewBox="0 0 60 40" aria-hidden="true"><path d="M8 34 22 6"/><path d="M24 36 38 6"/><path d="M40 34 54 8"/></svg>Más que un gimnasio</p>
+          <h2 class="sec__title">Todo para tu <span class="hl">mejor versión</span></h2>
+          <p class="sec__lead">Sala de musculación, entrenamiento guiado y clases de contacto en un mismo lugar.</p>
+        </div>
+        <div class="svcs__grid">%%SERVICIOS%%
+        </div>
+      </div>
+    </section>
+    <!-- /SI:SERVICIOS -->
+
+    <!-- SI:GALERIA -->
+    <!-- ============ EL GYM ============ -->
+    <section class="sec gym" id="gym">
+      <div class="wrap">
+        <div class="sec__head" data-reveal>
+          <p class="eyebrow"><svg class="claw" viewBox="0 0 60 40" aria-hidden="true"><path d="M8 34 22 6"/><path d="M24 36 38 6"/><path d="M40 34 54 8"/></svg>El gym</p>
+          <h2 class="sec__title">Espacio amplio, <span class="hl">hierro de verdad</span></h2>
+        </div>
+        <div class="gym__grid">%%GALERIA%%
+        </div>
+      </div>
+    </section>
+    <!-- /SI:GALERIA -->
+
+    <!-- ============ HORARIO ============ -->
+    <section class="sec hours" id="horario">
+      <div class="wrap hours__in">
+        <div class="hours__copy">
+          <div class="sec__head" data-reveal>
+            <p class="eyebrow"><svg class="claw" viewBox="0 0 60 40" aria-hidden="true"><path d="M8 34 22 6"/><path d="M24 36 38 6"/><path d="M40 34 54 8"/></svg>Horario</p>
+            <h2 class="sec__title">Abrimos <span class="hl">temprano</span></h2>
+          </div>
+          <p class="status" data-reveal><span class="status__dot"></span><span class="status__txt">Horario de atención</span></p>
+          <div class="hours__rows" data-reveal>%%HORARIO%%
+          </div>
+        </div>
+        <div class="hours__side">
+          <div class="card wk" data-reveal>
+            <p class="card__label"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Tu semana en DinoGym</p>
+            <div class="wk__rows">%%SEMANA%%</div>
+            <div class="wk__scale" aria-hidden="true"><span>05:00</span><span>14:00</span><span>23:00</span></div>
+          </div>
+          <!-- SI:FERIADOS -->
+          <div class="card holi" data-reveal>
+            <p class="card__label"><svg class="i" aria-hidden="true"><use href="#i-calendario"/></svg>Feriados irrenunciables: cerrado</p>
+            <ul class="holi__list">%%FERIADOS%%</ul>
+            <p class="holi__note">%%FERIADOS_NOTA%%</p>
+          </div>
+          <!-- /SI:FERIADOS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ UBICACIÓN ============ -->
+    <section class="sec where" id="ubicacion">
+      <div class="wrap where__in">
+        <div class="where__copy">
+          <div class="sec__head" data-reveal>
+            <p class="eyebrow"><svg class="claw" viewBox="0 0 60 40" aria-hidden="true"><path d="M8 34 22 6"/><path d="M24 36 38 6"/><path d="M40 34 54 8"/></svg>Ubicación</p>
+            <h2 class="sec__title">Sigue las <span class="hl">huellas</span></h2>
+          </div>
+          <div class="tracks" aria-hidden="true">
+            <svg class="i"><use href="#i-huella"/></svg><svg class="i"><use href="#i-huella"/></svg><svg class="i"><use href="#i-huella"/></svg><svg class="i"><use href="#i-huella"/></svg><svg class="i"><use href="#i-huella"/></svg><svg class="i"><use href="#i-huella"/></svg>
+          </div>
+          <ul class="contact" data-reveal>
+            <li><span class="contact__ico"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></span><div><small>Dirección</small><b>%%DIRECCION%%, %%COMUNA%%</b><span>Región de %%REGION%%</span></div></li>
+            <!-- SI:WHATSAPP -->
+            <li><span class="contact__ico"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg></span><div><small>Teléfono y WhatsApp</small><a href="%%TEL_HREF%%">%%TEL%%</a></div></li>
+            <!-- /SI:WHATSAPP -->
+            <li><span class="contact__ico"><svg class="i" aria-hidden="true"><use href="#i-instagram"/></svg></span><div><small>Instagram</small><a href="%%IG%%" target="_blank" rel="noopener">@%%IG_USER%%</a></div></li>
+          </ul>
+          <div class="where__cta" data-reveal>
+            <a class="btn btn--gold" href="%%RUTA_URL%%" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-nav"/></svg>Cómo llegar</a>
+            <a class="btn btn--line" href="%%MAPS_URL%%" target="_blank" rel="noopener">Ver en Google Maps <svg class="i" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+        </div>
+        <div class="map" data-reveal>
+          <iframe title="Mapa: %%NOMBRE%% en %%DIRECCION%%, %%COMUNA%%" src="%%MAPS_EMBED%%" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CIERRE ============ -->
+    <section class="final">
+      <div class="wrap final__in" data-reveal>
+        <svg class="barbell" viewBox="0 0 320 80" aria-hidden="true">
+          <rect x="20" y="36" width="280" height="8" rx="4" fill="#b9beb2"/>
+          <rect x="44" y="12" width="18" height="56" rx="5" fill="#f6b818"/><rect x="24" y="20" width="16" height="40" rx="5" fill="#c58f00"/>
+          <rect x="258" y="12" width="18" height="56" rx="5" fill="#f6b818"/><rect x="280" y="20" width="16" height="40" rx="5" fill="#c58f00"/>
+        </svg>
+        <h2 class="final__title">%%CIERRE_TITULO%%</h2>
+        <p class="final__text">%%CIERRE_TEXTO%%</p>
+        <div class="final__cta">
+          <a class="btn btn--gold btn--lg" href="%%WA_GENERAL%%" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg>Escríbenos por %%WA_LABEL%%</a>
+          <a class="btn btn--line btn--lg" href="%%IG%%" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-instagram"/></svg>Síguenos en Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <div class="foot__brand">
+        <img src="/img/logo.jpg" alt="Logo de %%NOMBRE%%" width="64" height="64" loading="lazy">
+        <div><b>%%NOMBRE_COMPLETO%%</b><p>%%LEMA%%.</p></div>
+      </div>
+      <nav class="foot__links" aria-label="Pie de página">
+        <a href="#planes">Planes</a><a href="#servicios">Servicios</a><a href="#horario">Horario</a><a href="#ubicacion">Ubicación</a>
+      </nav>
+      <div class="foot__social">
+        <a class="icon-btn" href="%%IG%%" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        <a class="icon-btn" href="%%WA_GENERAL%%" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+      </div>
+    </div>
+    <p class="wrap foot__copy">© %%YEAR%% %%NOMBRE_COMPLETO%% · %%DIRECCION%%, %%COMUNA%%</p>
+  </footer>
+
+  <a class="fab" href="%%WA_GENERAL%%" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Escríbenos</span></a>
+
+  <script>window.__DG__ = %%DATA%%;</script>
+  <script src="/app.js?v=%%V%%" defer></script>
+</body>
+</html>

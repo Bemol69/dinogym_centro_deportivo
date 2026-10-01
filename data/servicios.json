@@ -1,0 +1,10 @@
+{
+  "servicios": [
+    { "icono": "pesa", "nombre": "Sala de musculación", "texto": "Máquinas, peso libre y zona de cardio en un espacio amplio para entrenar en serio.", "etiqueta": "", "visible": true },
+    { "icono": "objetivo", "nombre": "Personal trainer", "texto": "Entrenamiento guiado para avanzar con buena técnica, seguridad y un objetivo claro.", "etiqueta": "", "visible": true },
+    { "icono": "rutina", "nombre": "Rutinas personalizadas", "texto": "Una rutina armada según tu objetivo, tu nivel y los días que puedes entrenar.", "etiqueta": "Cupos disponibles", "visible": true },
+    { "icono": "guante", "nombre": "Kickboxing", "texto": "Clases de golpeo, técnica y acondicionamiento. Consulta días y horarios.", "etiqueta": "", "visible": true },
+    { "icono": "cinturon", "nombre": "Jiu-jitsu", "texto": "Clases de jiu-jitsu en el centro deportivo. Consulta días y horarios.", "etiqueta": "", "visible": true },
+    { "icono": "medida", "nombre": "Evaluación antropométrica", "texto": "Certificada ISAK 1: porcentaje de grasa, masa muscular, pliegues, perímetros y somatotipo.", "etiqueta": "Muy pronto", "visible": true }
+  ]
+}

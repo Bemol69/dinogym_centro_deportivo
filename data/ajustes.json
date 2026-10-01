@@ -1,0 +1,22 @@
+{
+  "nombre": "DinoGym",
+  "nombre_completo": "DinoGym Centro Deportivo",
+  "instagram": "dinogym_centro_deportivo",
+  "whatsapp": "56947335365",
+  "direccion": "Doctor Noel 389",
+  "comuna": "Rengo",
+  "region": "O'Higgins",
+  "maps_url": "https://www.google.com/maps/place/Dino+Gym/@-34.4113997,-70.8566349,17z/data=!4m6!3m5!1s0x96649f66b8880a4f:0x7c0f167c35280f01!8m2!3d-34.4113997!4d-70.8566349!16s%2Fg%2F11vcm4n_8h",
+  "lema": "El dolor de hoy será la fuerza del mañana",
+  "hero_bajada": "Gimnasio, personal trainer, kickboxing y jiu-jitsu en el centro de Rengo. Sin matrícula, sin inscripción y sin contratos que te amarren.",
+  "valores": ["Fuerza sin límites", "Disciplina diaria", "Resultados reales", "Tu mejor versión"],
+  "cierre_titulo": "El gym de los que nunca se rinden",
+  "cierre_texto": "Escríbenos y te contamos qué plan te conviene. Puedes partir hoy mismo.",
+  "google_nota": 4.3,
+  "google_resenas": 13,
+  "beneficios": [
+    { "icono": "sin-matricula", "titulo": "Sin matrícula ni inscripción", "texto": "Pagas tu mes y entrenas. Nada de cobros extra por entrar." },
+    { "icono": "escudo", "titulo": "Sin contratos abusivos", "texto": "No te amarramos a permanencias ni letra chica. Siempre pagas lo justo." },
+    { "icono": "calendario", "titulo": "Entrena todos los días", "texto": "Sin límite de días dentro de nuestro horario, de lunes a sábado." }
+  ]
+}
