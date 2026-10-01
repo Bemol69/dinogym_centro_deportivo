@@ -121,7 +121,7 @@ function planCard(p, i, g) {
 const PLANES_TABS = gruposConPlanes
   .map(
     (g, i) =>
-      `<button type="button" role="tab" class="tab${i === 0 ? " is-on" : ""}" id="tab-${esc(g.id)}" aria-controls="panel-${esc(g.id)}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${icon(g.id === "estudiantes" ? "estudiante" : "pesa")}${esc(g.nombre)}</button>`
+      `<button type="button" role="tab" class="tab${i === 0 ? " is-on" : ""}" id="tab-${esc(g.id)}" aria-controls="panel-${esc(g.id)}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}"><span class="tab__ico">${icon(g.id === "estudiantes" ? "estudiante" : "pesa")}</span><span class="tab__txt"><b>${esc(g.nombre)}</b><small>${(n => `${n} ${n === 1 ? "plan" : "planes"}`)(planes.filter((p) => p.grupo === g.id).length)}</small></span></button>`
   )
   .join("");
 
@@ -130,7 +130,7 @@ const PLANES_PANELS = gruposConPlanes
     const lista = planes.filter((p) => p.grupo === g.id);
     return `
         <div class="plans__panel${gi === 0 ? " is-on" : ""}" role="tabpanel" id="panel-${esc(g.id)}" aria-labelledby="tab-${esc(g.id)}">
-          <h3 class="plans__group">${esc(g.nombre)}</h3>
+          <h3 class="plans__group"><span>Estás viendo</span>${esc(g.nombre)}</h3>
           ${g.nota ? `<p class="plans__note">${icon("alert")}${esc(g.nota)}</p>` : ""}
           <div class="plans__grid plans__grid--${Math.min(lista.length, 4)}">${lista.map((p, i) => planCard(p, i, g)).join("")}
           </div>

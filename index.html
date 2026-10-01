@@ -135,7 +135,8 @@
         </div>
 
         <!-- SI:TABS -->
-        <div class="tabs" role="tablist" aria-label="Tipo de plan" data-reveal>%%PLANES_TABS%%<span class="tabs__ink" aria-hidden="true"></span></div>
+        <p class="tabs__label" id="tabs-label" data-reveal>Elige tu tipo de plan <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></p>
+        <div class="tabs" role="tablist" aria-labelledby="tabs-label" data-reveal>%%PLANES_TABS%%<span class="tabs__ink" aria-hidden="true"></span></div>
         <!-- /SI:TABS -->
 
         <div class="plans__panels">%%PLANES_PANELS%%
