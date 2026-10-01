@@ -92,11 +92,25 @@ const BENEFICIOS = (aj.beneficios || [])
   .join("");
 
 // ---------- planes ----------
+// Para mostrar cuánto sale al mes un plan trimestral, semestral o anual
+const MESES = { trimestre: 3, semestre: 6, "año": 12 };
+const TIPOS = [
+  { id: "individual", nombre: "Individuales", icono: "user" },
+  { id: "equipo", nombre: "Para entrenar en equipo", icono: "users" },
+];
+const tipoDe = (p) => (TIPOS.some((t) => t.id === p.tipo) ? p.tipo : p.personas > 1 ? "equipo" : "individual");
 const personasIco = (n) => `<span class="ppl" aria-label="${n} ${n === 1 ? "persona" : "personas"}">${Array.from({ length: Math.min(n, 6) }, () => icon("person")).join("")}</span>`;
 
 function planCard(p, i, g) {
   const consultar = !p.precio;
-  const porPersona = !consultar && p.personas > 1 ? `<p class="plan__each">${clp(p.precio / p.personas)} por persona</p>` : "";
+  const meses = MESES[p.periodo] || 1;
+  const porPersona = consultar
+    ? ""
+    : p.personas > 1
+      ? `<p class="plan__each">${clp(p.precio / p.personas / meses)} por persona${meses > 1 ? " al mes" : ""}</p>`
+      : meses > 1
+        ? `<p class="plan__each">Equivale a ${clp(p.precio / meses)} al mes</p>`
+        : "";
   const msg = `Hola ${aj.nombre}, quiero el ${p.nombre}${g.id !== "general" ? ` (${g.nombre})` : ""}${consultar ? "" : ` de ${clp(p.precio)}`}. ¿Me dan más información?`;
   const incluye = (p.incluye || []).filter(Boolean).map((x) => `<li>${icon("check")}${esc(x)}</li>`).join("");
   return `
@@ -128,12 +142,21 @@ const PLANES_TABS = gruposConPlanes
 const PLANES_PANELS = gruposConPlanes
   .map((g, gi) => {
     const lista = planes.filter((p) => p.grupo === g.id);
+    const subgrupos = TIPOS.map((t) => ({ ...t, lista: lista.filter((p) => tipoDe(p) === t.id) })).filter((t) => t.lista.length);
     return `
         <div class="plans__panel${gi === 0 ? " is-on" : ""}" role="tabpanel" id="panel-${esc(g.id)}" aria-labelledby="tab-${esc(g.id)}">
           <h3 class="plans__group"><span>Estás viendo</span>${esc(g.nombre)}</h3>
           ${g.nota ? `<p class="plans__note">${icon("alert")}${esc(g.nota)}</p>` : ""}
-          <div class="plans__grid plans__grid--${Math.min(lista.length, 4)}">${lista.map((p, i) => planCard(p, i, g)).join("")}
-          </div>
+          ${subgrupos
+            .map(
+              (t) => `
+          <div class="plans__sub">
+            ${subgrupos.length > 1 ? `<h4 class="plans__subtitle">${icon(t.icono)}${esc(t.nombre)}</h4>` : ""}
+            <div class="plans__grid plans__grid--${Math.min(t.lista.length, 4)}">${t.lista.map((p, i) => planCard(p, i, g)).join("")}
+            </div>
+          </div>`
+            )
+            .join("")}
         </div>`;
   })
   .join("");

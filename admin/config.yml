@@ -49,13 +49,14 @@ collections:
             label_singular: plan
             widget: list
             hint: "Arrastra los planes para cambiar el orden. Para ocultar uno sin borrarlo, desmarca «Mostrar en la web»."
-            summary: "{{fields.nombre}} · ${{fields.precio}} · {{fields.grupo}}"
+            summary: "{{fields.grupo}} · {{fields.nombre}} · ${{fields.precio}}"
             fields:
               - { name: grupo, label: Pestaña donde aparece, widget: select, default: general, options: [{ label: "Estudiantes", value: estudiantes }, { label: "General", value: general }] }
+              - { name: tipo, label: Sección, widget: select, default: individual, options: [{ label: "Individuales", value: individual }, { label: "Para entrenar en equipo", value: equipo }] }
               - { name: nombre, label: Nombre del plan, widget: string, hint: "Ej: Plan Dúo" }
               - { name: personas, label: Cantidad de personas, widget: number, value_type: int, min: 1, max: 6, default: 1, hint: "Si son 2 o más, la web calcula sola cuánto paga cada uno." }
               - { name: precio, label: Precio total, widget: number, value_type: int, min: 0, hint: "Solo números, sin puntos. Ej: 25000. Si pones 0 aparece «Consultar»." }
-              - { name: periodo, label: Se paga por, widget: select, options: [mes, día, semana, trimestre, año], default: mes }
+              - { name: periodo, label: Se paga por, widget: select, options: [mes, trimestre, semestre, año, semana, día], default: mes, hint: "Si es trimestre, semestre o año, la web muestra sola cuánto sale al mes." }
               - { name: detalle, label: Frase corta, widget: string, required: false, hint: "Ej: Ingreso de 06:00 a 13:00 hrs." }
               - { name: incluye, label: Qué incluye, label_singular: punto, widget: list, required: false, field: { name: item, label: Punto, widget: string } }
               - { name: etiqueta, label: Etiqueta (opcional), widget: string, required: false, hint: "Ej: El más elegido, Cupos limitados. Vacío = sin etiqueta." }

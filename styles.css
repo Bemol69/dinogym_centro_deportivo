@@ -368,6 +368,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   font: 400 clamp(1.6rem, 3vw, 2.1rem)/1 var(--display); text-transform: uppercase; color: var(--gold);
 }
 .plans__group span { font: 700 0.9rem/1 var(--cond); letter-spacing: 0.16em; color: var(--muted); }
+.plans__sub + .plans__sub { margin-top: 40px; }
+.plans__subtitle {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 22px;
+  font: 700 1.15rem/1 var(--cond); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text);
+}
+.plans__subtitle .i { width: 20px; height: 20px; color: var(--green); }
+.plans__subtitle::after { content: ""; flex: 1; height: 1px; background: var(--line-2); }
 .js .plans__panel.is-on { animation: panelIn 0.55s var(--ease); }
 @keyframes panelIn { from { opacity: 0; transform: translateY(14px); } }
 .js .plans__panel:not(.is-on) { display: none; }
